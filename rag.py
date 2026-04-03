@@ -23,7 +23,8 @@ def create_rag_chain(file_path):  # ← add this
 
     embeddings = HuggingFaceEmbeddings(model_name = "all-MiniLM-L6-v2")
     vector_stores = FAISS.from_documents(documents = splitter_docs, embedding = embeddings)
-
+    
+    #retriever for all the dcuments to load in vector store
     retriever = vector_stores.as_retriever()
     prompt= ChatPromptTemplate.from_messages([
         ("system", "Answer the question based on the context: {context}"),
