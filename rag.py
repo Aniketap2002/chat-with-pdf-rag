@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyMuPDFLoader
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -13,7 +13,7 @@ from langchain_core.runnables import RunnablePassthrough
 load_dotenv()
 
 def create_rag_chain(file_path):  # ← add this
-    model = ChatGoogleGenerativeAI(model = "gemini-2.5-flash")
+    model = ChatGroq(model = "llama-3.1-8b-instant", temperature = 0.7)
 
     loader = PyMuPDFLoader(file_path = file_path)
     documents = loader.load()  # ← use parameter
