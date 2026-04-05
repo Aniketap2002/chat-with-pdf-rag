@@ -3,4 +3,4 @@ __pycache__   → auto generated Python files — not needed
 *.pdf         → user's personal documents — private!
 venv/         → your local packages — server installs its own
 .DS_Store     → Mac system file — useless for others
-faiss_index/  → local vector store — too large, not needed
+faiss_index/  → local vector store — too large, not needed.env
